@@ -4,7 +4,6 @@ public class ShoppingCart {
 
 	public static void main(String[] args) {
 		
-
 		LinkedList<String> cart = new LinkedList<String>();
 		
 		cart.add("Wireless Mouse");
@@ -12,7 +11,7 @@ public class ShoppingCart {
 		cart.add("USB-C Hub");
 		System.out.println(cart);
 		
-		cart.add(1,"Mouse Pad");
+		cart.add(1,"Mouse Pad"); //No5
 		System.out.println(cart);
 		
 		cart.removeLast();
@@ -24,10 +23,13 @@ public class ShoppingCart {
 		cart.add("Monitor");
 		System.out.println(cart);
 		
-		cart.set( 2, "Phone Holder");
+		cart.set(2, "Phone Holder");
 		System.out.println(cart);
 		
-		System.out.println(cart.getLast());
+		System.out.println("\n"+ cart.getLast());
+		
+		
+		
 	}
 
 }

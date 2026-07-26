@@ -1,3 +1,4 @@
+
 public class Node {
 	
 	// Attributes in Class Node
@@ -18,7 +19,7 @@ public class Node {
 	}
 	
 	public static String getAddress(Node node) {
-		return (node == null) ? "null" : node.getAddress();
+		return ( node == null) ? "null" : node.getAddress();
 	}
-	
 }
+	

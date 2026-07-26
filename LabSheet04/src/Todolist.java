@@ -1,23 +1,31 @@
 
-public class Todolist {
+public class TodoList {
+
 	public static void main(String[] args) {
-		DoublyLinkedList Todolist = new DoublyLinkedList();
-		Todolist.insert("Finish Home");
-		System.out.println(Todolist.traversal()); 
+		// TODO Auto-generated method stub
+		DoublyLinkedList todolist = new DoublyLinkedList();
 		
-		Todolist.insert("Laundry");
-		Todolist.insert("Group Meeting");
-		System.out.println(Todolist.traversal()); 
+		todolist.insert("Finish Homework");
+		todolist.insert("Laundry");
+		todolist.insert("Group Meeting");
+		System.out.println("To-Do List = " + todolist.traversal());
 		
-		//ex2
-		Todolist.insert(0,"Submit Report");
-		System.out.println("To-Do List = " + Todolist.traversal());
+		todolist.insert(0, "Submit Report");
+		System.out.println("To-Do List = " + todolist.traversal());
+
+		todolist.insert(2, "Buy Food");
+		System.out.println("To-Do List = " + todolist.traversal());
 		
-		Todolist.insert(2,"Buy Food");
-		System.out.println("To-Do List = " + Todolist.traversal());
+		todolist.insert("Go to Gym");
+		System.out.println("To-Do List = " + todolist.traversal());
 		
-		Todolist.insert("Go to Gym");
-		System.out.println("To-Do List = " + Todolist.traversal());
-		
+		todolist.remove();
+		todolist.remove(3);
+		todolist.remove(0);
+
+		System.out.println("To-Do List = " + todolist.traversal());
+		System.out.println("\nBackward Traversal = " + todolist.backwardTraversal());
+
 	}
+
 }
