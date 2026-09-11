@@ -17,23 +17,30 @@ public class TraversePostorder {
 		ArrayList<Integer> list = new ArrayList<Integer>();
 		Deque<Node> stack = new ArrayDeque<Node>();
 		Queue<Integer> queue = new ArrayDeque<Integer>();
-		
-		stack.push(node);
+
+		Node current_node = node;
+		stack.push(current_node);
 		
 		while (!stack.isEmpty()) {
-		Node current_Node= stack.pop();
-		queue.offer(current_Node.data);
-		if(current_Node.left != null) {
-			stack.push(current_Node.left);
+
+			current_node = stack.pop();
+			queue.offer(current_node.data);
+
+			if (current_node.left != null) {
+				stack.push(current_node.left);
+			}
+			
+			if (current_node.right != null) {
+				stack.push(current_node.right);
+			}
+			
 		}
-		if (current_Node.right != null) {
-			stack.push(current_Node.right);
-		}
-	}
+		
 		while(!queue.isEmpty()) {
-			System.out.println(list);
 			list.addFirst(queue.poll());
 		}
+	
+		
 		return list;
 	}
 }
