@@ -17,7 +17,7 @@ public class TreeApp4 {
         System.out.print("\nEnter a number to found in the tree: ");
         int N = scanner.nextInt();
 
-        Node targetNode = tree6.findNode(N); //โหนดที่จะหาคือโหนด N
+        Node targetNode = tree6.findNode(N); //หาโหนด N
 
         if (targetNode == null) {
             System.out.println("Cannot found Node(data=" + N + ")");
