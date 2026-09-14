@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Queue;
 import java.util.ArrayDeque;
 public class BinaryTree {
@@ -206,4 +207,30 @@ public void createTree6() {
 			}
 		}
 	}
+	public Node findNode(int N) {
+		if (root == null) {
+			return null;
+		}
+
+		Queue<Node> queue = new LinkedList<>();
+		queue.add(root);
+
+		while (!queue.isEmpty()) {
+			Node current = queue.poll();
+
+			if (current.data == N) {
+				return current;
+			}
+
+			if (current.left != null) {
+				queue.add(current.left); //เพิ่มลูกซ้ายเข้า queue
+			}
+
+			if (current.right != null) {
+				queue.add(current.right); // พเิ่มลูกขวาเข้า queue
+			}
+		}
+		return null;
+	}
+
 }

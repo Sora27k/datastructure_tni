@@ -14,7 +14,6 @@ public class TreeApp2 {
 		//System.out.println();
 		//tree1.searchDeleteNode(15);
 		
-		
 		System.out.println("-----------------------------------------");
 		System.out.println("Binary Tree from create Tree5");
 		System.out.println("-----------------------------------------");
