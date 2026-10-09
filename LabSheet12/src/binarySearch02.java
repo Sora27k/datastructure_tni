@@ -6,7 +6,11 @@ public class binarySearch02 {
     public static void main(String[] args) {
         LinkedList<Integer> nums = random_initial();
 
-        System.out.print("Elements : ");
+        nums.sort((a, b) -> {
+            return a.compareTo(b);
+        });
+
+        System.out.print("Elements after sorting: : ");
         for (int value : nums) {
             System.out.print(value + " ");
         }
@@ -16,7 +20,7 @@ public class binarySearch02 {
         System.out.print("Enter target: ");
         int target = sc.nextInt();
 
-        int result = linearSearch(nums, target);
+        int result = binarySearch(nums, target);
         if (result != -1) {
             System.out.println("The target (" + target + ") at index " + result);
         } else {
@@ -24,6 +28,7 @@ public class binarySearch02 {
         }
         sc.close();
     }
+
     public static LinkedList<Integer> random_initial() {
         Random rnd = new Random();
         LinkedList<Integer> nums = new LinkedList<Integer>();
@@ -33,13 +38,21 @@ public class binarySearch02 {
         return nums;
     }
 
-    public static int linearSearch(LinkedList<Integer> nums, int target) {
-        int index = 0;
-        for (int value : nums) {
+    public static int binarySearch(LinkedList<Integer> nums, int target) {
+        int low = 0;
+        int high = nums.size() - 1;
+
+        while (low <= high) {
+            int middle = (low + high) / 2;
+            int value = nums.get(middle);
+
             if (value == target) {
-                return index;
+                return middle;
+            } else if (target < value) {
+                high = middle - 1;
+            } else {
+                low = middle + 1;
             }
-            index++;
         }
         return -1;
     }

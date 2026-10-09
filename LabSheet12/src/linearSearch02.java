@@ -18,12 +18,13 @@ public class linearSearch02 {
 
         int result = linearSearch(nums, target);
         if (result != -1) {
-            System.out.println("\nThe target (" + target + ") at index " + result);
+            System.out.println("The target (" + target + ") at index " + result);
         } else {
-            System.err.println("\nCannot found " + target + " in this linked list");
+            System.err.println("Cannot found " + target + " in this linked list");
         }
         sc.close();
     }
+
     public static LinkedList<Integer> random_initial() {
         Random rnd = new Random();
         LinkedList<Integer> nums = new LinkedList<Integer>();

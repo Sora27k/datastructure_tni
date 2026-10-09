@@ -28,6 +28,7 @@ public class jumpSearch02 {
         }
         sc.close();
     }
+
     public static LinkedList<Integer> random_initial() {
         Random rnd = new Random();
         LinkedList<Integer> nums = new LinkedList<Integer>();
@@ -43,26 +44,29 @@ public class jumpSearch02 {
             return -1;
         }
 
-        int jump = (int) Math.sqrt(n);
-        int step = jump;
-        int prev = 0;
+        int jump = (int) Math.floor(Math.sqrt(n));
+        int start = 0;
+        int m = 0;
 
-
-        while (nums.get(Math.min(step, n) - 1) < target) {
-            prev = step;
-            step += jump;
-            if (prev >= n) {
-                return -1;
+        while (m < n) {
+            int value = nums.get(m);
+            if (value == target) {
+                return m;
+            } else if (value < target) {
+                start = m;
+                m += jump;
+            } else {
+                return linearBetween(nums, start, m, target);
             }
         }
+        return linearBetween(nums, start, n - 1, target);
+    }
 
-        for (int i = prev; i < Math.min(step, n); i++) {
-            int value = nums.get(i);
-            if (value == target) {
+    private static int linearBetween(LinkedList<Integer> nums, int from, int to, int target) {
+        int last = Math.min(to, nums.size() - 1);
+        for (int i = from; i <= last; i++) {
+            if (nums.get(i) == target) {
                 return i;
-            }
-            if (value > target) {
-                break;
             }
         }
         return -1;
